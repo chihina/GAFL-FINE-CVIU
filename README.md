@@ -6,7 +6,7 @@ I deeply appreciate their efforts.
 This is the official repository for the following paper:
 
 Chihiro Nakatani, Hiroaki Kawashima, Norimichi Ukita  
-Learning Group Activity Features Through Person Attribute Prediction, submitted to CVIU.
+Human-in-the-loop Adaptation in Group Activity Feature Learning for Team Sports Video Retrieval, (under review).
 
 ## Environment
 python 3.10.2  
@@ -41,34 +41,19 @@ https://cvgl.stanford.edu/projects/collective/collectiveActivity.html
 
 * Ours
 ```
-python scripts/train_volleyball_stage2_gr.py
+bash scripts/run_multiple_volleyball.bash
 ```
-The following folder contains the trained models.
-1. GAFL_PAC_VOL (GAFL-PAC)
-2. GAFL_PAF_VOL (GAFL-PAF)
 
-### 2.2 Collective Activity dataset
+### 2.2 NBA dataset
 
 * Ours
 ```
-python scripts/train_collective_stage2_gr.py
+bash scripts/run_multiple_basketball.bash
 ```
-The following folder contains the trained models.
-1. GAFL_PAC_CAD (GAFL-PAC)
-2. GAFL_PAF_CAD (GAFL-PAF)
 
-## 3. Evaluation
-### 3.1 Volleyball dataset
-You can choose the model that you would like to evaluate in the bash file script.
+### 2.3 Collective Activity dataset
 
 * Ours
 ```
-bash ./evaluation_vol.bash
-```
-
-### 3.2 Collective Activity dataset
-
-* Ours
-```
-bash ./evaluation_cad.bash
+bash scripts/run_multiple_volleyball.bash
 ```
