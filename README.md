@@ -8,6 +8,8 @@ This is the official repository for the following paper:
 Chihiro Nakatani, Hiroaki Kawashima, Norimichi Ukita  
 Human-in-the-loop Adaptation in Group Activity Feature Learning for Team Sports Video Retrieval, (under review).
 
+We will add detailed explanations after acceptance.
+
 ## Environment
 python 3.10.2  
 ROIAlign (https://github.com/longcw/RoIAlign.pytorch)
