@@ -1,0 +1,129 @@
+import sys
+sys.path.append(".")
+device_list = '2'
+import os
+os.environ['CUDA_VISIBLE_DEVICES'] = device_list
+import wandb
+
+from train_net_stage2_gr import *
+
+dataset = 'jrdb'
+cfg=Config(dataset)
+
+cfg.mode = 'PAF'
+cfg.use_pos_type = 'absolute'
+cfg.use_recon_loss = False
+cfg.use_act_loss = False
+cfg.use_activity_loss = False
+cfg.use_pose_loss = False
+cfg.use_recon_diff_loss = False
+cfg.use_jae_loss = False
+cfg.use_jae_type = 'gt'
+cfg.use_query_loss = False
+cfg.use_key_recog_loss = False
+cfg.use_recon_loss_key = False
+cfg.use_recon_loss_non_key = False
+cfg.use_recon_pose_feat_loss = False
+cfg.use_recon_pose_coord_loss = False
+cfg.use_traj_loss = False
+cfg.use_person_num_loss = False
+cfg.query_type = 'dummy'
+cfg.feature_adapt_type = 'ft'
+cfg.freeze_backbone_stage4 = False
+cfg.use_individual_action_type = 'gt'
+cfg.use_query_classfication_loss = False
+cfg.use_ga_recog_loss = False
+cfg.use_ia_recog_loss = False
+cfg.device_list = device_list
+cfg.use_gpu = True
+cfg.use_multi_gpu = True
+cfg.training_stage = 2
+cfg.train_backbone = False
+# cfg.train_backbone = True
+cfg.test_before_train = False
+cfg.test_interval_epoch = 1
+cfg.image_size = 320, 640
+cfg.wandb_loss_list = ['activities_acc', 'activities_conf', 'activities_MPCA',
+                        'actions_acc', 'actions_conf', 'actions_MPCA', 'loss']
+
+# vgg16 setup
+# cfg.backbone = 'vgg16'
+# cfg.stage1_model_path = 'result/[GR ours_stage1]<2023-07-07_23-22-44>/stage1_epoch10_0.59%.pth'
+# cfg.out_size = 22, 40
+cfg.out_size = 10, 20
+cfg.emb_features = 512
+cfg.backbone = 'vgg19_flat'
+
+cfg.eval_only = False
+# cfg.batch_size = 1
+# cfg.batch_size = 2
+# cfg.batch_size = 4
+cfg.batch_size = 8
+# cfg.batch_size = 16
+cfg.test_batch_size = 1
+cfg.num_frames = 10
+cfg.load_backbone_stage2 = False
+# cfg.load_backbone_stage2 = True
+# cfg.train_learning_rate = 1e-4
+# cfg.lr_plan = {11: 3e-5, 21: 1e-5}
+# cfg.max_epoch = 60
+# cfg.max_epoch = 100
+cfg.train_learning_rate = 1e-4
+cfg.lr_plan = {100: 3e-5}
+cfg.max_epoch = 100
+# cfg.max_epoch = 1
+# cfg.lr_plan = {11: 3e-5, 21: 1e-5}
+# cfg.lr_plan = {11: 1e-5}
+# cfg.max_epoch = 30
+cfg.actions_weights = [1., 1., 2., 3., 1., 2., 2., 0.2, 1.]
+
+cfg.num_before = 0
+cfg.num_after = 0
+cfg.num_frames = 1
+cfg.random_sampling = False
+
+cfg.num_actions = 27
+cfg.num_activities = 7
+cfg.num_social_activities = 32
+cfg.num_boxes = 54
+
+# stage2 setup
+cfg.use_random_mask = False
+# cfg.use_random_mask = True
+cfg.random_mask_type = 'random'
+# cfg.random_mask_type = 2
+# cfg.random_mask_type = 4
+# cfg.random_mask_type = 6
+# cfg.random_mask_type = 8
+# cfg.random_mask_type = 10
+
+# cfg.use_recon_loss = False
+cfg.use_recon_loss = True
+
+# cfg.use_ind_feat_crop = 'roi_multi'
+cfg.use_ind_feat_crop = 'crop_single'
+
+cfg.use_loc_feat_prev = False
+# cfg.use_loc_feat_prev = True
+
+# cfg.inference_module_name = 'group_activity_volleyball'
+# cfg.exp_note = 'GA ours finetune'
+
+cfg.inference_module_name = 'group_relation_ident_volleyball'
+cfg.exp_note = 'JRDB GR prev ImageNet pretrain VGG crop'
+
+# cfg.inference_module_name = 'group_relation_ae_volleyball'
+# cfg.exp_note = 'JRDB GR prev ImageNet pretrain autoencoder crop'
+
+# cfg.inference_module_name = 'group_relation_hrn_volleyball'
+# cfg.exp_note = 'JRDB GR prev ImageNet pretrain HRN crop sigmoid'
+
+print("===> Generate wandb system")
+wandb.login()
+wandb.init(project=f"DIN-Group-Activity-Recognition-Benchmark-JRDB",
+            name=f'{cfg.exp_note}_stage2', 
+            config=cfg,
+            settings=wandb.Settings(start_method='fork'),
+            )
+
+train_net(cfg)
