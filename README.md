@@ -25,7 +25,7 @@ These dataset are required to place in data/ in the repository as follows:
 * Volleyball dataset (data/volleyball/videos)  
 https://github.com/mostafa-saad/deep-activity-rec
 
-* NBA dataset (data/basketball/videos)
+* NBA dataset (data/basketball/videos)  
 https://ruiyan1995.github.io/SAM.html
 
 * Collective Activity dataset (data/collective)  
@@ -33,9 +33,7 @@ https://cvgl.stanford.edu/projects/collective/collectiveActivity.html
 
 
 ## 2. Training
-* You can change parameters of the model by editing the files located in scripts (e.g., scripts/train_volleyball_stage2_gr.py).
-* Trained model are also published in here (https://drive.google.com/drive/folders/1UnwII6cHG-5SMVPAHwweO92TUwXQfKqt?usp=drive_link).
-* trained models required to place in result/ (e.g., result/GAFL_PAC_VOL).
+* You can change parameters of the model by editing the files located in scripts (e.g., scripts/run_multiple_volleyball.bash).
 
 ### 2.1 Volleyball dataset
 
