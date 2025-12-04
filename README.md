@@ -9,6 +9,9 @@ Computer Vision and Image Understanding, vol.263, pp. 104577, 2026.
 Our codes are based on https://github.com/JacobYuan7/DIN-Group-Activity-Recognition-Benchmark. and https://github.com/chihina/GAFL-CVPR2024.
 I deeply appreciate their efforts.
 
+![Top page](https://github.com/chihina/GAFL-FINE-CVIU/blob/master/static/CVIU2026-GAFL-top.png)
+
+
 # Citation
 
 ```
