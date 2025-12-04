@@ -9,6 +9,19 @@ Chihiro Nakatani, Hiroaki Kawashima, Norimichi Ukita
 Human-in-the-loop Adaptation in Group Activity Feature Learning for Team Sports Video Retrieval.  
 Computer Vision and Image Understanding, vol.263, pp. 104577, 2026.
 
+# Citation
+
+```
+@article{NAKATANI2026104577,
+title = {Human-in-the-loop adaptation in group activity feature learning for team sports video retrieval},
+journal = {Computer Vision and Image Understanding},
+volume = {263},
+pages = {104577},
+year = {2026},
+author = {Chihiro Nakatani and Hiroaki Kawashima and Norimichi Ukita},
+}
+```
+
 ## Environment
 python 3.10.2  
 ROIAlign (https://github.com/longcw/RoIAlign.pytorch)
