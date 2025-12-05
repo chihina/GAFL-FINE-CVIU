@@ -3,8 +3,9 @@
 This is the official repository for the following paper:
 
 Chihiro Nakatani, Hiroaki Kawashima, Norimichi Ukita.  
-[Human-in-the-loop Adaptation in Group Activity Feature Learning for Team Sports Video Retrieval](https://www.sciencedirect.com/science/article/abs/pii/S1077314225003005).  
-Computer Vision and Image Understanding, vol.263, pp. 104577, 2026.
+Human-in-the-loop Adaptation in Group Activity Feature Learning for Team Sports Video Retrieval.  
+Computer Vision and Image Understanding, vol.263, pp. 104577, 2026.  
+Project page: [https://toyota-ti.ac.jp/Lab/Denshi/iim/ukita/selection/CVIU2026-GAFL.html](https://www.toyota-ti.ac.jp/Lab/Denshi/iim/ukita/selection/CVIU2026-GAFL.html)
 
 Our codes are based on https://github.com/JacobYuan7/DIN-Group-Activity-Recognition-Benchmark. and https://github.com/chihina/GAFL-CVPR2024.
 I deeply appreciate their efforts.
